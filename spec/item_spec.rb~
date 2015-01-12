@@ -1,0 +1,7 @@
+require 'rails_helper'
+
+describe Item do
+  it "is valid with a description and store"
+  it "is invalid without a description"
+  it "is invalid without a store"
+end
