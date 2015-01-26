@@ -2,7 +2,8 @@
 
 FactoryGirl.define do
   factory :item do
-    description "MyString"
-    barcode ""
+    sequence(:storeid) { |n| "{n}"}
+    sequence(:itemdetailid) { |n| "{n}"}
+    price { Faker::Commerce.price }
   end
 end
