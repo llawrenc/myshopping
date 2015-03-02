@@ -13,8 +13,8 @@ default: &default
 development:
   <<: *default
   database: myshopping_dev
-  username: myshopping
-  password: mysh0pp1ng
+  username: postgres
+  password: sRl@1003
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -22,11 +22,11 @@ development:
 test:
   <<: *default
   database: myshopping_test
-  username: myshopping
-  password: mysh0pp1ng
+  username: postgres
+  password: sRl@1003
 
 production:
   <<: *default
   database: myshopping
-  username: myshopping
-  password: mysh0pp1ng
+  username: postgres
+  password: sRl@1003

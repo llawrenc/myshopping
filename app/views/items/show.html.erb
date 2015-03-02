@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @item.description if @item %>
+</p>
+
+<p>
+  <%= @item.barcode %>
+</p>
+
+<p>
+  <%= @item.image_path %>
+</p>
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>

@@ -1,0 +1,29 @@
+<h1>Manage My Items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Description</th>
+      <th>Barcode</th>
+      <th>Price</th>
+      <th>Store</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @itemstores.each do |is| %>
+       <tr>
+         <td><%= image_tag(is.item.image_path, size: "90x90", alt: "Image") %></td>
+         <td><%= is.item.description %></td>
+         <td><%= is.item.barcode %></td>
+         <td><%= number_to_currency(is.price) %></td>
+         <td><%= is.store.store_name %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+<%= link_to 'New Item', new_item_path %>

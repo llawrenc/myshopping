@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150114221312) do
+ActiveRecord::Schema.define(version: 20150228174903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "item_stores", force: true do |t|
+    t.integer "item_id",  null: false
+    t.integer "store_id", null: false
+    t.decimal "price"
+  end
+
+  add_index "item_stores", ["item_id", "store_id"], name: "index_item_stores_on_item_id_and_store_id", unique: true, using: :btree
+  add_index "item_stores", ["item_id", "store_id"], name: "index_items_stores_on_item_id_and_store_id", unique: true, using: :btree
 
   create_table "itemdetails", force: true do |t|
     t.string   "description"
@@ -24,9 +33,23 @@ ActiveRecord::Schema.define(version: 20150114221312) do
   end
 
   create_table "items", force: true do |t|
-    t.integer  "storeid"
-    t.integer  "itemdetailid"
-    t.decimal  "price",        precision: 7, scale: 2
+    t.decimal  "price",       precision: 7, scale: 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "description"
+    t.string   "image_path"
+    t.integer  "barcode"
+  end
+
+  add_index "items", ["description"], name: "index_items_on_description", using: :btree
+
+  create_table "stores", force: true do |t|
+    t.string   "store_name"
+    t.string   "address1"
+    t.string   "address2"
+    t.integer  "suburb_id"
+    t.decimal  "lat",        precision: 10, scale: 8
+    t.decimal  "lng",        precision: 11, scale: 8
     t.datetime "created_at"
     t.datetime "updated_at"
   end
