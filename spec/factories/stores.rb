@@ -2,9 +2,9 @@
 
 FactoryGirl.define do
   factory :store do
-    store_name "MyString"
-    address1 "MyString"
-    address2 "MyString"
+    store_name "BigShop"
+    address1 "BigShop Centre"
+    address2 "1 Shop Ave"
     suburb_id 1
     lat "9.99"
     lng "9.99"
