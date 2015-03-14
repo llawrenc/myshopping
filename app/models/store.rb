@@ -1,6 +1,9 @@
 class Store < ActiveRecord::Base
   has_many :item_stores, foreign_key: "store_id"
   has_many :items, :through => :item_stores
+  has_one :suburb
+
+  accepts_nested_attributes_for :suburb
   accepts_nested_attributes_for :items
   accepts_nested_attributes_for :item_stores
 

@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <th>Store<th>
+    <th>Suburb<th>
+  </tr>
+
+  <% @stores.each do |store| %>
+    <tr>
+      <td><%= store.store_name %></td>
+      <td><%= store.suburb_id %></td>
+    </tr>
+  <% end %>
+</table>
+

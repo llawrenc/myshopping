@@ -1,10 +1,10 @@
-<%= form_for(@item) do |f| %>
-  <% if @item.errors.any? %>
+<%= form_for(@itemstore) do |f| %>
+  <% if @itemstore.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
+      <h2><%= pluralize(@itemstore.errors.count, "error") %> prohibited this item from being saved:</h2>
 
       <ul>
-      <% @item.errors.full_messages.each do |message| %>
+      <% @itemstore.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -12,10 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="actions">
+    <%= f.label :item_id %><br>
+    <%= f.select :item_id, Item.all.collect { |i| [ i.description, i.id ] } %>
+   </div>
+ 
+ <div class="actions">
     <%= f.submit %>
   </div>
+
+
 <% end %>
