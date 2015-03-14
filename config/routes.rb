@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'items#index'
+
   resources :items
 
   resources :item_stores
@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :stores
 
   resources :suburbs
+
+  root 'suburbs#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
