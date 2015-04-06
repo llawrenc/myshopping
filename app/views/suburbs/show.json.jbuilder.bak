@@ -1,0 +1,1 @@
+json.extract! @suburb, :id, :suburb, :state, :post_code, :created_at, :updated_at

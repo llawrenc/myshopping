@@ -1,0 +1,5 @@
+json.array!(@item_stores) do |i|
+  json.extract! i, :id, :item.image_path, :item.description, :price, :store.store_name
+  json.e
+  json.url item_stores_url(i, format: :json)
+end

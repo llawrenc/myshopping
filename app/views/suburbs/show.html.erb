@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Suburb:</strong>
+  <%= @suburb.locality if @suburb %>
+</p>
+
+<p>
+  <%= @suburb.state %>
+</p>
+
+<p>
+  <%= @suburb.post_code %>
+</p>
+
+<%= link_to 'Edit', edit_suburb_path(@suburb) %> |
+<%= link_to 'Back', suburbs_path %>

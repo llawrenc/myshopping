@@ -72,6 +72,6 @@ class SuburbsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def suburb_params
-      params.require(:suburb).permit( :suburb, :state, :post_code )
+      params.require(:suburb).permit( :suburb, :find_state, :post_code )
     end
 end

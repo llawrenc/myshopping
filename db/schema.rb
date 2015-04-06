@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150311202216) do
+ActiveRecord::Schema.define(version: 20150406101935) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,21 @@ ActiveRecord::Schema.define(version: 20150311202216) do
 
   add_index "items", ["description"], name: "index_items_on_description", using: :btree
 
+  create_table "list_items", force: true do |t|
+    t.integer  "list_id"
+    t.integer  "item_id"
+    t.integer  "purchased_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "lists", force: true do |t|
+    t.integer  "list_detail_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "stores", force: true do |t|
     t.string   "store_name"
     t.string   "address1"
@@ -46,12 +61,27 @@ ActiveRecord::Schema.define(version: 20150311202216) do
   end
 
   create_table "suburbs", force: true do |t|
-    t.string  "suburb"
-    t.string  "state"
-    t.integer "post_code"
+    t.string   "locality"
+    t.string   "state"
+    t.integer  "post_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
+  add_index "suburbs", ["locality"], name: "index_suburbs_on_locality", using: :btree
   add_index "suburbs", ["post_code"], name: "index_suburbs_on_post_code", using: :btree
-  add_index "suburbs", ["suburb"], name: "index_suburbs_on_suburb", using: :btree
+
+  create_table "users", force: true do |t|
+    t.string   "first_name"
+    t.string   "lastname"
+    t.string   "billing_address1"
+    t.string   "billing_address2"
+    t.integer  "billing_suburb_id"
+    t.string   "postal_address1"
+    t.string   "postal_address2"
+    t.integer  "postal_suburb_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

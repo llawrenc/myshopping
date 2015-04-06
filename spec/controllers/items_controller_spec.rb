@@ -18,13 +18,13 @@ RSpec.describe ItemsController, :type => :controller do
   # ItemsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  describe "Root route" do
-    it "renders the items view as the homepage" do
-      expect(get: root_url(subdomain: nil)).to route_to(
-        controller: "items",
-        action: "index")
-    end
-  end
+#  describe "Root route" do
+#    it "renders the items view as the homepage" do
+#      expect(get: root_url(subdomain: nil)).to route_to(
+#        controller: "items",
+#        action: "index")
+#    end
+#  end
 
   describe "GET index" do
     it "assigns all items as @items" do

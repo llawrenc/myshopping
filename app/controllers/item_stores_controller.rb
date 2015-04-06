@@ -4,7 +4,10 @@ class ItemStoresController < ApplicationController
   # GET /item_stores
   # GET /item_stores.json
   def index
-    @itemstores = ItemStore.includes([ :item, :store ]).all
+    respond_to do |format|
+      format.html
+      format.json { render json: ItemStoresDatatable.new(view_context) }
+    end
   end
 
   # GET /item_stores/1
@@ -69,6 +72,6 @@ class ItemStoresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_store_params
-      params.require(:item_store).permit( :item_id, :store_id, :price, :stores_attributes => [ :id, :store_name ], :items_attributes => [ :id, :description, :barcode ])
+      params.require(:item_store).permit( :item_id, :store_id, :price, :stores_attributes => [ :id, :store_name ], :items_attributes => [ :id, :description, :barcode, :image_path ] )
     end
 end

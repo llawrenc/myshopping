@@ -1,0 +1,7 @@
+FactoryGirl.define do
+  factory :suburb do
+    locality "Sandgate"
+    state ""
+		post_code 401
+  end
+end

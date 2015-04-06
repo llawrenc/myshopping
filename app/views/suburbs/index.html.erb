@@ -1,4 +1,5 @@
-<table id="suburbs-table", data-source="<%= suburbs_path(format: :json) %>">
+<div class="table-responsive">
+<table id="suburbs-table", class="display" data-source="<%= suburbs_path(format: :json) %>">
   <thead>
     <tr>
       <th>Suburb</th>
@@ -9,4 +10,5 @@
   <tbody>
   </tbody>
 </table>
-
+</div>
+<%= button_to "+", new_suburb_path, :method => "get" %>
